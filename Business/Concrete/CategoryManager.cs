@@ -17,7 +17,7 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        IDataResult<List<Category>> ICategoryService.GetAll()
+        public IDataResult<List<Category>> GetAll()
         {
             var result = _categoryDal.GetAll();
 
@@ -28,7 +28,7 @@ namespace Business.Concrete
             return new ErrorDataResult<List<Category>>("Kategori bulunamadı.");
         }
 
-        IDataResult<Category> ICategoryService.GetById(int categoryId)
+        public IDataResult<Category> GetById(int categoryId)
         {
             var result = _categoryDal.Get(c => c.CategoryId == categoryId);
             if (result != null)
